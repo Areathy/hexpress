@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const promoteRouter = express.Router();
+const promoRouter = express.Router();
 
-promoteRouter.use(bodyParser.json());
+promoRouter.use(bodyParser.json());
 
-promoteRouter.route('/')
+promoRouter.route('/')
 .all((req,res,next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -25,7 +25,7 @@ promoteRouter.route('/')
     res.end('Deleting all promotions');
 });
 
-promoteRouter.route('/:promotionId')
+promoRouter.route('/:promotionId')
 .all((req,res,next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -46,4 +46,4 @@ promoteRouter.route('/:promotionId')
     res.end('Deleting promotion with ID ' + req.params.promotionId);
 });
 
-module.exports = promoteRouter;
+module.exports = promoRouter;
